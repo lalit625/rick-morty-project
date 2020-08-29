@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Api Call</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.7.0/qs.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+   
+  </head>
+
+  <body onload="getResults1();">
+  
+  <div class="container">
+
+   <div class="row bgcolortop">
+       <div class="col-md-6 padding">
+        <div id="search">
+       
+            <form action=""  name="frm">
+            
+              <input name="keyword" type="text"   border="0" class="search__field" placeholder="Search By Name" />
+                
+               <input name="submit" type="image" value="submit" src="search-ico2.jpg" class="go_icon"/>
+            </form>
+            <div class="clearboth"></div>
+            </div>
+            <div class="filter_ico">
+            <a class="filter_data" href="#">    <img src="sort-ico.png"  align="absmiddle" > Sort Data By Id</a>
+
+            </div>
+       </div>
+       <div class="col-md-6 padding">
+        <div class="custom-select" >
+            <select id="select1" onchange="getByGender();">
+              <option >Select Character By Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Genderless">Genderless</option>
+              <option value="Unknown">Unknown</option>
+             
+            </select>
+
+       </div>
+       <div class="custom-select" >
+        <select id="select2" onchange="getBySpices();">
+          <option >Select Character By Spices</option>
+          <option value="Alien">Alien</option>
+          <option value="Human">Human</option>
+          <option value="Humanoid">Humanoid</option>
+         
+        </select>
+
+   </div>
+   </div>
+   </div>
+        <div class="row bgcolormid">
+            <div class="ch_data_head">
+        
+               <!--  <div class="data_spices">
+                    <img src="avt1.jpeg" alt="">
+                        <div class="clearboth"></div>
+
+                        <div class="data_in">
+                            <h2>Character Name<br>
+                                <span>Id:1 - Created 2 year Ago</span>
+                            </h2>
+
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Status
+                                </div>
+                                <div class="spices_data_dt">
+                                    Alive
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Spices
+                                </div>
+                                <div class="spices_data_dt">
+                                   Human
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Status
+                                </div>
+                                <div class="spices_data_dt">
+                                    Alive
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Origin
+                                </div>
+                                <div class="spices_data_dt">
+                                   Post-Acyolaptic Earth
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                  Last Location
+                                </div>
+                                <div class="spices_data_dt">
+                                   Post-Acyolaptic Earth
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+
+
+                        </div>
+
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 chdta padding mar">
+                <div class="data_spices">
+                    <img src="avt1.jpeg" alt="">
+                        <div class="clearboth"></div>
+
+                        <div class="data_in">
+                            <h2>Character Name<br>
+                                <span>Id:1 - Created 2 year Ago</span>
+                            </h2>
+
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Status
+                                </div>
+                                <div class="spices_data_dt">
+                                    Alive
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Spices
+                                </div>
+                                <div class="spices_data_dt">
+                                   Human
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Status
+                                </div>
+                                <div class="spices_data_dt">
+                                    Alive
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Origin
+                                </div>
+                                <div class="spices_data_dt">
+                                   Post-Acyolaptic Earth   Post-Acyolaptic Earth
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                  Last Location
+                                </div>
+                                <div class="spices_data_dt">
+                                   Post-Acyolaptic Earth  Post-Acyolaptic Earth
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+
+
+                        </div>
+
+                </div>
+
+            </div>
+            <div class="col-xs-6 col-md-3 chdta padding mar2">
+                <div class="data_spices">
+                    <img src="avt1.jpeg" alt="">
+                        <div class="clearboth"></div>
+
+                        <div class="data_in">
+                            <h2>Character Name<br>
+                                <span>Id:1 - Created 2 year Ago</span>
+                            </h2>
+
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Status
+                                </div>
+                                <div class="spices_data_dt">
+                                    Alive
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Spices
+                                </div>
+                                <div class="spices_data_dt">
+                                   Human
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Status
+                                </div>
+                                <div class="spices_data_dt">
+                                    Alive
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Origin
+                                </div>
+                                <div class="spices_data_dt">
+                                   Post-Acyolaptic Earth  Post-Acyolaptic Earth
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                  Last Location
+                                </div>
+                                <div class="spices_data_dt">
+                                   Post-Acyolaptic Earth  Post-Acyolaptic Earth
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+
+
+                        </div>
+
+                </div>
+
+            </div>
+            <div class="col-xs-6 col-md-3 chdta padding">
+                <div class="data_spices">
+                    <img src="avt1.jpeg" alt="">
+                        <div class="clearboth"></div>
+
+                        <div class="data_in">
+                            <h2>Character Name<br>
+                                <span>Id:1 - Created 2 year Ago</span>
+                            </h2>
+
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Status
+                                </div>
+                                <div class="spices_data_dt">
+                                    Alive
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Spices
+                                </div>
+                                <div class="spices_data_dt">
+                                   Human
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Status
+                                </div>
+                                <div class="spices_data_dt">
+                                    Alive
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                    Origin
+                                </div>
+                                <div class="spices_data_dt">
+                                   Post-Acyolaptic Earth
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="spices_data">
+                                <div class="spices_data_title">
+                                  Last Location
+                                </div>
+                                <div class="spices_data_dt">
+                                   Post-Acyolaptic Earth
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+
+
+                        </div>
+
+                </div>
+
+            </div> -->
+            
+        </div>
+
+  
+
+
+        <div class="clearboth"></div>
+        <div class="btn btn-primary btn-lg prev">Previous</div>
+
+        <div class="btn btn-primary btn-lg next">Next</div>
+
+
+
+<div class="clearboth"></div>
+</div>
+            
+
+<script src="api-cal.js"></script>
+             
+  
+  </body>
+</html>
